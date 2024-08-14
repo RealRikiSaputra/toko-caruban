@@ -1,5 +1,12 @@
+/* Main Content */
+body {
+    background-color: #e9ecef;
+    color: #343a40;
+}
+
+/* Product Items */
 .product-item {
-    border: 1px solid #e0e0e0;
+    border: 1px solid #dcdcdc;
     border-radius: 10px;
     padding: 20px;
     margin: 15px 0;
@@ -8,6 +15,7 @@
     cursor: pointer;
     display: flex;
     align-items: flex-start;
+    background-color: #ffffff;
 }
 
 .product-item:hover {
@@ -47,17 +55,43 @@
     margin-top: auto; /* Pushes button to the bottom of the container */
 }
 
-  
-  /* Search and Filter */
-  #searchInput, #categoryFilter {
+/* Testimonial Gallery */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery-item {
+    flex: 1 1 calc(33.333% - 10px);
+    max-width: calc(33.333% - 10px);
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.modal-img {
+    width: 100%;
+    height: auto;
+}
+
+/* Contact Section */
+.contact-section {
     background-color: #ffffff;
-    border: 1px solid #ced4da;
-    color: #495057;
-  }
-  
-  /* Main Content */
-  body {
-    background-color: #e9ecef;
-    color: #343a40;
-  }
-  
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
