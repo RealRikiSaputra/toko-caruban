@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Order ke WhatsApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white text-center">
+                        <h4 class="mb-0">Formulir Order ke WhatsApp</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="whatsappForm">
+                            <div class="mb-3">
+                                <label for="obat" class="form-label">Obat</label>
+                                <input type="text" id="obat" class="form-control" placeholder="Contoh: Habutop" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Nama Lengkap:</label>
+                                <input type="text" id="fullName" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Nomor HP:</label>
+                                <input type="text" id="phone" class="form-control" placeholder="Contoh: 628123456789" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="province" class="form-label">Provinsi:</label>
+                                <input type="text" id="province" class="form-control" placeholder="Masukkan provinsi Anda" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="city" class="form-label">Kabupaten/Kota:</label>
+                                <input type="text" id="city" class="form-control" placeholder="Masukkan kabupaten/kota Anda" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subDistrict" class="form-label">Kecamatan:</label>
+                                <input type="text" id="subDistrict" class="form-control" placeholder="Masukkan kecamatan Anda" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="village" class="form-label">Kelurahan:</label>
+                                <input type="text" id="village" class="form-control" placeholder="Masukkan kelurahan Anda" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">No. Rumah RT/RW:</label>
+                                <input type="text" id="address" class="form-control" placeholder="Masukkan nomor rumah, RT/RW Anda" required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Kirim Order ke WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var obat = document.getElementById('obat').value
+            var fullName = document.getElementById('fullName').value;
+            var phone = document.getElementById('phone').value;
+            var province = document.getElementById('province').value;
+            var city = document.getElementById('city').value;
+            var subDistrict = document.getElementById('subDistrict').value;
+            var village = document.getElementById('village').value;
+            var address = document.getElementById('address').value;
+
+            var message = `Hallo Admin, Saya ingin order ${obat} dengan alamat:%0A%0ANama: ${fullName}%0ANomor HP: ${phone}%0AProvinsi: ${province}%0AKabupaten/Kota: ${city}%0AKecamatan: ${subDistrict}%0AKelurahan: ${village}%0AAlamat: ${address}`;
+            var whatsappUrl = `https://api.whatsapp.com/send?phone=628388542297&text=${message}`;
+
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
