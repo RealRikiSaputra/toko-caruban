@@ -12,7 +12,7 @@ async function loadProducts() {
             if (product.name && product.price) {
 
                 const productItem = document.createElement('div');
-                productItem.className = 'col-md-4'; // Store category in data attribute
+                productItem.className = 'col-md-4';
                 productItem.innerHTML = `
                     <div class="product-item d-flex align-items-start">
                         <img src="${product.image || 'img/default_product.png'}" alt="${product.name}" class="product-img">
@@ -95,9 +95,69 @@ async function loadPharmacies() {
     }
 }
 
+function player(){
+    const source = 'https://stream.carubantv.id/hls/stream.m3u8';
+	const video = document.querySelector('video');
+  
+	// For more options see: https://github.com/sampotts/plyr/#options
+	// captions.update is required for captions to work with hls.js
+	const player = new Plyr(video, {
+	  controls: [
+		'play-large', // The large play button in the center
+        // 'restart', // Restart playback
+        // 'rewind', // Rewind by the seek time (default 10 seconds)
+        'play', // Play/pause playback
+        // 'fast-forward', // Fast forward by the seek time (default 10 seconds)
+        'progress', // The progress bar and scrubber for playback and buffering
+        // 'current-time', // The current time of playback
+        'duration', // The full duration of the media
+        'mute', // Toggle mute
+        'volume', // Volume control
+        // 'captions', // Toggle captions
+        'settings', // Settings menu
+        'pip', // Picture-in-picture (currently Safari only)
+        // 'airplay', // Airplay (currently Safari only)
+        // 'download', // Custom download button
+        'fullscreen', // Toggle fullscreen
+		'quality' // Add quality control
+	  ],
+	  settings: ['captions', 'quality', 'speed', 'loop'],
+	});
+  
+	if (!Hls.isSupported()) {
+	  video.src = source;
+	} else {
+	  // For more Hls.js options, see https://github.com/dailymotion/hls.js
+	  const hls = new Hls();
+	  hls.loadSource(source);
+	  hls.attachMedia(video);
+	  window.hls = hls;
+  
+	  // Expose available video qualities
+	  player.on('hlsLevelLoaded', (event) => {
+		const levels = hls.levels;
+		const options = levels.map((level, index) => ({
+		  label: `Quality ${level.bitrate / 1000} kbps`,
+		  value: index,
+		}));
+		player.addSetting('quality', options);
+	  });
+  
+	  // Handle quality selection from player
+	  player.on('settingchange', (event) => {
+		if (event.detail.name === 'quality') {
+		  hls.currentLevel = event.detail.value;
+		}
+	  });
+	}
+  
+	// Expose player so it can be used from the console
+	window.player = player;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
     loadTestimonials();
     loadPharmacies();
+    player();
 });

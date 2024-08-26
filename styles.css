@@ -1,7 +1,54 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+
 /* Main Content */
 body {
+    font-family: 'Poppins', sans-serif;
     background-color: #e9ecef;
     color: #343a40;
+}
+
+/* Buttons */
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    margin-bottom: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-family: 'Ubuntu', sans-serif;
+}
+.btn-icon img {
+    width: 24px;
+    height: auto;
+    margin-right: 8px;
+}
+.btn-shopee {
+    background-color: #ee4d2d;
+}
+.btn-shopee:hover {
+    background-color: #d43f2f;
+}
+.btn-tiktok {
+    background-color: #000;
+}
+.btn-tiktok:hover {
+    background-color: #6b6b6b;
+}
+.btn-tokopedia, .btn-whatsapp {
+    background-color: #34b233;
+}
+.btn-whatsapp i {
+    margin-right: 5px;
+}
+.btn-tokopedia, .btn-whatsapp:hover {
+    background-color: #2a8a1e;
 }
 
 /* Product Items */
@@ -17,31 +64,26 @@ body {
     align-items: flex-start;
     background-color: #ffffff;
 }
-
 .product-item:hover {
     transform: scale(1.03);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-
 .product-img {
     border-radius: 8px;
     max-width: 130px;
     max-height: 130px;
 }
-
 .product-description {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
 .product-price {
     font-weight: bold;
     color: #28a745;
     margin-bottom: 10px;
 }
-
 .product-description p {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -50,9 +92,27 @@ body {
     text-overflow: ellipsis;
     margin-bottom: 0;
 }
-
 .btn-detail {
     margin-top: auto; /* Pushes button to the bottom of the container */
+}
+
+/* Product Detail Section */
+.product-detail img {
+    margin-top: 10px;
+    max-width: 100%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.product-detail h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.product-detail p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 /* Testimonial Gallery */
@@ -62,7 +122,6 @@ body {
     gap: 10px;
     justify-content: center;
 }
-
 .gallery-item {
     flex: 1 1 calc(33.333% - 10px);
     max-width: calc(33.333% - 10px);
@@ -71,18 +130,15 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
     transition: transform 0.3s ease;
 }
-
 .gallery-item img:hover {
     transform: scale(1.05);
 }
-
 .modal-img {
     width: 100%;
     height: auto;
