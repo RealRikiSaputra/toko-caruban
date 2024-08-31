@@ -157,8 +157,10 @@ function player(){
 
 document.addEventListener('DOMContentLoaded', () => {
     const player1 = new Plyr('#player1');
-            const player2 = new Plyr('#player2');
-            const player3 = new Plyr('#player3');
+    const player2 = new Plyr('#player2');
+    const player3 = new Plyr('#player3');
+    const player4 = new Plyr('#player4');
+
     loadProducts();
     loadTestimonials();
     loadPharmacies();
